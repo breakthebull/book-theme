@@ -1,0 +1,34 @@
+---
+layout: book-profile
+---
+
+<!-- Override the main content area for chapters -->
+<div class="chapter-intro">
+    <div class="chapter-badge-large">Chapter {{ page.chapter }}</div>
+    <h2 class="chapter-title">{{ page.title }}</h2>
+    <p class="chapter-book">from <em>{{ page.book }}</em></p>
+</div>
+
+<div class="chapter-content-wrapper">
+    {{ content }}
+</div>
+
+<!-- Chapter navigation -->
+<nav class="chapter-nav">
+    {% assign book_chapters = site.chapters
+        | where: "book", page.book
+        | sort: "chapter"
+    %}
+
+    {% if book_chapters.size > 1 %}
+    <div class="chapter-nav-inner">
+        {% for chap in book_chapters %}
+            {% if chap.url == page.url %}
+            <span class="current">● {{ chap.chapter }}</span>
+            {% else %}
+            <a href="{{ chap.url | relative_url }}" class="chapter-link">{{ chap.chapter }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</nav>

@@ -70,6 +70,116 @@ body {
     .corner-br { bottom: 8px; right: 8px; transform: rotate(180deg); }
 }
 
+/* Library Index Page Styles */
+.library-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $color-border;
+
+    .library-title {
+        font-size: 2.5rem;
+        font-weight: normal;
+        letter-spacing: 4px;
+        color: $color-accent-dark;
+        margin: 0 0 10px 0;
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .library-subtitle {
+        font-size: 0.9rem;
+        color: #777;
+        font-style: italic;
+        margin: 0;
+    }
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.book-card {
+    display: block;
+    background: #fff;
+    border: 1px solid $color-border;
+    border-radius: 2px;
+    overflow: hidden;
+    text-decoration: none;
+    color: $color-text;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-color: $color-accent;
+    }
+
+    .book-card-image {
+        aspect-ratio: 2/3;
+        background: #f9f9f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .no-cover {
+            color: #999;
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+    }
+
+    .book-card-info {
+        padding: 15px;
+        text-align: center;
+
+        .book-card-title {
+            font-size: 1rem;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .book-card-author {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0 0 8px 0;
+            font-style: italic;
+        }
+
+        .book-card-traits {
+            font-size: 0.65rem;
+            color: #777;
+            margin: 0;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+/* Responsive grid */
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    .book-card-info {
+        padding: 12px;
+    }
+    .book-card-title {
+        font-size: 0.9rem !important;
+    }
+}
+
 /* ========================================
    MAIN LAYOUT - WIDER
    ======================================== */
@@ -487,6 +597,98 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
     text-transform: uppercase;
+}
+
+/* Chapter Page Styles */
+.chapter-intro {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $color-border;
+
+    .chapter-badge-large {
+        display: inline-block;
+        background: $color-accent;
+        color: #fff;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.75rem;
+        padding: 5px 15px;
+        border-radius: 3px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .chapter-title {
+        font-size: 1.8rem;
+        font-weight: normal;
+        color: $color-accent-dark;
+        margin: 0 0 8px 0;
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .chapter-book {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+        font-style: italic;
+    }
+}
+
+.chapter-content-wrapper {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+
+    p {
+        margin: 15px 0;
+    }
+}
+
+.chapter-nav {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+
+    .chapter-nav-inner {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .chapter-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border: 1px solid $color-border;
+            border-radius: 50%;
+            color: $color-text;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: $color-accent;
+                color: #fff;
+                border-color: $color-accent;
+            }
+        }
+
+        .current {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: $color-accent-dark;
+            color: #fff;
+            border-radius: 50%;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+        }
+    }
 }
 
 

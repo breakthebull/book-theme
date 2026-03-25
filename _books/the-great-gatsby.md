@@ -1,5 +1,6 @@
 ---
 title: "The Great Gatsby"
+slug: "the-great-gatsby"
 subtitle: "A Novel"
 author: "F. Scott Fitzgerald"
 translator: "N/A"

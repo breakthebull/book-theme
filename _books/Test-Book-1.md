@@ -8,7 +8,7 @@ genre: "Crazy Weird"
 series: "The Test"
 pages: "200"
 status: "Completed"
-traits: [\"Brave\", \"Smart\", \"Fast\"]
+traits: ["Brave", "Smart", "Fast"]
 cover_image: "/assets/covers/placeholder.jpg"
 quote: "Testing is for smart people"
 description: "Sometimes the world needs a test."

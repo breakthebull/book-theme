@@ -4,7 +4,7 @@ author: "Apple Bottom"
 genre: "Crazy Weird"
 series: "Standalone"
 status: "Completed"
-traits: [\"Brave\", \"Funny\", \"Smart\"]
+traits: ["Brave", "Funny", "Smart"]
 cover_image: "/assets/covers/placeholder.jpg"
 quote: "There are worlds out there that don't take tests"
 description: "Smart and funny."

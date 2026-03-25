@@ -105,20 +105,43 @@
                 <span class="scroll-label">scroll to read more</span>
             </div>
 
-            <!-- Related Books -->
-            <section class="related-section">
-                <div class="related-scroll-wrapper">
-                    <span class="line-dashed-left"></span>
-                    <ul class="bullet-list">
-                        {% for book in site.books %}
-                            {% if book.title != page.title %}
-                            <li><a href="{{ book.url | relative_url }}">{{ book.title }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <span class="line-dashed-right"></span>
-                </div>
-            </section>
+            <!-- Related Section: Chapters OR Other Books -->
+<section class="related-section">
+    <div class="related-scroll-wrapper">
+        <span class="line-dashed-left"></span>
+        <ul class="bullet-list">
+            {% assign book_slug = page.slug | default: page.title | downcase | replace: " ", "-" | replace: '"', "" %}
+
+            {% assign book_chapters = site.chapters
+                | where_exp: "chap", "chap.path contains book_slug"
+                | sort: "chapter"
+            %}
+
+            {% if book_chapters.size > 0 %}
+                <!-- Show chapters for THIS book -->
+                <li class="book-link">
+                    <a href="{{ '/' | relative_url }}">Back to Library</a>
+                </li>
+                {% for chap in book_chapters %}
+                <li>
+                    <a href="{{ chap.url | relative_url }}">
+                        <span class="chapter-badge">Ch. {{ chap.chapter }}</span>
+                        {{ chap.title | default: chap.display_title }}
+                    </a>
+                </li>
+                {% endfor %}
+            {% else %}
+                <!-- Fallback: Show other books -->
+                {% for book in site.books %}
+                    {% if book.title != page.title %}
+                    <li><a href="{{ book.url | relative_url }}">{{ book.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <span class="line-dashed-right"></span>
+    </div>
+</section>
 
 
             <footer class="book-footer">
