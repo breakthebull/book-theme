@@ -1,0 +1,13 @@
+<div class="warning-box">
+    <h3>BEFORE YOU READ</h3>
+    <p>This profile may include sensitive themes and serious topics that could be distressing to some readers</p>
+    <p class="disclaimer">
+        <span class="hangul-symbol">ᅳ</span> Viewer discretion is advised
+    </p>
+    <p class="wip-note">
+        This profile is currently a work in progress. Some details may be incomplete, missing, or subject to change as it continues to be developed
+    </p>
+    {% if include.warning %}
+    <p class="content-warning">Content Warning: {{ include.warning }}</p>
+    {% endif %}
+</div>

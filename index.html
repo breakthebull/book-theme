@@ -1,0 +1,17 @@
+---
+layout: default
+title: Library Index
+---
+
+<div class="profile-container">
+    <h1 style="text-align:center; letter-spacing: 2px;">MY LIBRARY</h1>
+    
+    <div class="book-list">
+        {% for book in site.books %}
+        <div class="book-item">
+            <h3><a href="{{ book.url | relative_url }}">{{ book.title }}</a></h3>
+            <p>{{ book.author }} — {{ book.genre }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>

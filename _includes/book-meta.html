@@ -1,0 +1,35 @@
+<div class="meta-section">
+    <div class="meta-item meta-item-1">
+        <h3>I. Title</h3>
+        <p><span class="symbol">𝄖</span> {{ include.title }}</p>
+        {% if include.subtitle %}
+        <p><span class="symbol">𝄖</span> {{ include.subtitle }}</p>
+        {% endif %}
+    </div>
+
+    <div class="meta-item meta-item-2">
+        <h3>II. Author</h3>
+        <p><span class="symbol">𝄖</span> {{ include.author }}</p>
+        {% if include.translator %}
+        <p><span class="symbol">𝄖</span> Translated by {{ include.translator }}</p>
+        {% endif %}
+    </div>
+
+    <div class="meta-item meta-item-3">
+        <h3>III. Published</h3>
+        <p><span class="symbol">𝄖</span> {{ include.published }}</p>
+        <p><span class="symbol">𝄖</span> {{ include.publisher | default: "Unknown Publisher" }}</p>
+    </div>
+
+    <div class="meta-item meta-item-4">
+        <h3>IV. Genre</h3>
+        <p><span class="symbol">𝄖</span> {{ include.genre }}</p>
+        <p><span class="symbol">𝄖</span> {{ include.series | default: "Standalone" }}</p>
+    </div>
+
+    <div class="meta-item meta-item-5">
+        <h3>V. Status</h3>
+        <p><span class="symbol">𝄖</span> {{ include.status | default: "Completed" }}</p>
+        <p><span class="symbol">𝄖</span> {{ include.pages }} pages</p>
+    </div>
+</div>

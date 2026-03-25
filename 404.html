@@ -1,0 +1,91 @@
+---
+layout: default
+permalink: /404.html
+title: 404 - Not Found
+---
+
+<div class="profile-container">
+
+    <!-- SECTION: Tags Style Header -->
+    <div class="tags-container">
+        [ 404 / PAGE NOT FOUND / LOST ]
+    </div>
+
+    <!-- SECTION: Meta Data Table -->
+    <!-- Reusing the book meta table style for status info -->
+    <section class="meta-section">
+        <table class="meta-table">
+            <tr>
+                <th>I. Status</th>
+                <td>
+                    <span class="symbol-bullet">𝄖</span> Missing<br>
+                    <span class="symbol-bullet">𝄖</span> Unreachable
+                </td>
+            </tr>
+            <tr>
+                <th>II. Location</th>
+                <td>
+                    <span class="symbol-bullet">𝄖</span> Unknown Directory<br>
+                    <span class="symbol-bullet">𝄖</span> {{ page.url }}
+                </td>
+            </tr>
+            <tr>
+                <th>III. Action</th>
+                <td>
+                    <span class="symbol-bullet">𝄖</span> Return Home<br>
+                    <span class="symbol-bullet">𝄖</span> Retry Request
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- SECTION: Warning Box -->
+    <!-- Reusing the warning style for the error message -->
+    <section class="warning-box">
+        <strong>BEFORE YOU CONTINUE</strong>
+        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <p class="disclaimer">
+            <span class="hangul-symbol">ᅳ</span> Viewer discretion is advised
+        </p>
+        <p class="wip-note">
+            This error page is currently a work in progress. Some details may be incomplete, missing, or subject to change as it continues to be developed
+        </p>
+    </section>
+
+    <!-- SECTION: Introduction / Content -->
+    <section class="introduction">
+        <h2>Introduction</h2>
+        <div class="content-body">
+            <p>
+                <span style="float:left; font-size: 3rem; line-height: 0.8; margin-right: 10px; font-family: 'Georgia', serif;">Y</span>
+                ou seem to have wandered into a section of the library that does not exist. Perhaps the book was misplaced, or the link you followed is outdated.
+            </p>
+            <p>
+                We recommend returning to the main index to find what you are looking for. Do not despair; even the best libraries have missing volumes.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION: Scroll Box (Optional Decorative) -->
+    <div class="scroll-box">
+        <p>Suggested Actions:</p>
+        <p>1. Check the URL for typing errors.</p>
+        <p>2. Return to the homepage.</p>
+        <p>3. Contact the librarian if the problem persists.</p>
+    </div>
+    <span class="scroll-label">scroll to read more</span>
+
+    <!-- SECTION: Navigation Button -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ '/' | relative_url }}" style="text-decoration: none; border: 1px solid #333; padding: 10px 20px; color: #333; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">
+            Return to Library
+        </a>
+    </div>
+
+    <!-- SECTION: Footer -->
+    <footer>
+        <p>Original Design by <a href="https://toyhou.se/Starcorex" target="_blank" style="color: inherit;">Starcorex</a></p>
+        <p>Adapted for Jekyll by {{ site.author | default: "You" }}</p>
+    </footer>
+
+</div>

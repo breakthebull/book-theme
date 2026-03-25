@@ -1,0 +1,22 @@
+<div class="about-header">
+    <h3>{{ include.about_title | default: "📖 ABOUT THIS BOOK" }}</h3>
+</div>
+<div class="about-content">
+    {% if include.about_text %}
+    <p>{{ include.about_text }}</p>
+    {% else %}
+    <p>This book profile includes detailed information about the themes, characters, and narrative structure.</p>
+    {% endif %}
+
+    {% if include.content_warning %}
+    <p class="disclaimer">
+        <span class="symbol-hangul">ᅳ</span> <strong>Content Warning:</strong> {{ include.content_warning }}
+    </p>
+    {% endif %}
+
+    {% if include.work_in_progress %}
+    <p class="wip-note">
+        This profile is currently a work in progress. Some details may be incomplete, missing, or subject to change.
+    </p>
+    {% endif %}
+</div>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+
+<div class="card-frame">
+    <div class="card-corners">
+        <span class="corner corner-tl">❧</span>
+        <span class="corner corner-tr">❧</span>
+        <span class="corner corner-bl">❧</span>
+        <span class="corner corner-br">❧</span>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- LEFT SIDE -->
+        <aside class="left-sidebar">
+            <div class="left-top-cards">
+                <!-- Card 1: Image & Quote -->
+                <div class="card-image-quote">
+                    <div class="image-box">
+                        {% if page.cover_image %}
+                        <img src="{{ page.cover_image }}" alt="{{ page.title }}">
+                        {% else %}
+                        <div class="no-image">No Cover</div>
+                        {% endif %}
+                    </div>
+
+                    {% if page.buy_link %}
+                    <a href="{{ page.buy_link }}" target="_blank" class="buy-button">Buy Book</a>
+                    {% endif %}
+
+                    <div class="quote-box">
+                        <p class="quote-text">"{{ page.quote | default: 'A quote about this book would go here' }}"</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Metadata -->
+                <div class="card-meta">
+                    {% include book-meta.html
+                       title=page.title
+                       subtitle=page.subtitle
+                       author=page.author
+                       published=page.published
+                       publisher=page.publisher
+                       genre=page.genre
+                       series=page.series
+                       pages=page.pages
+                       status=page.status
+                    %}
+                </div>
+            </div>
+
+            <!-- Bottom: About Section -->
+            <div class="card-about">
+                {% include about-book.html
+                   about_title=page.about_title
+                   about_text=page.about_text
+                   content_warning=page.content_warning
+                   work_in_progress=page.work_in_progress
+                %}
+            </div>
+        </aside>
+
+        <!-- RIGHT SIDE -->
+        <main class="main-content">
+            <header class="book-header">
+                <h1 class="book-title">{{ page.title | upcase }}</h1>
+                <div class="book-traits">
+                    [ {{ page.traits | join: " / " | upcase }} ]
+                </div>
+                <div class="decorative-divider">
+                    <span class="floral-element">❦</span>
+                </div>
+            </header>
+
+            <section class="introduction-section">
+                <div class="intro-title-lines">
+                    <span class="line-solid"></span>
+                    <h2 class="section-title">[ INTRODUCTION ]</h2>
+                    <span class="line-solid"></span>
+                </div>
+
+                <div class="scroll-container">
+                    <span class="line-dashed-left"></span>
+                    <div class="scroll-box">
+                        <div class="intro-text-wrapper">
+                            <p class="intro-text">
+                                <strong>{{ page.title }}</strong> is a {{ page.genre }}
+                                {% if page.series %}in the {{ page.series }} series{% endif %}
+                                written by {{ page.author }}. {{ page.description }}
+                            </p>
+                        </div>
+                        {{ content }}
+                    </div>
+                    <span class="line-dashed-right"></span>
+                </div>
+            </section>
+
+            <div class="scroll-label-container">
+                <span class="scroll-label">scroll to read more</span>
+            </div>
+
+            <!-- Related Books -->
+            <section class="related-section">
+                <div class="related-scroll-wrapper">
+                    <span class="line-dashed-left"></span>
+                    <ul class="bullet-list">
+                        {% for book in site.books %}
+                            {% if book.title != page.title %}
+                            <li><a href="{{ book.url | relative_url }}">{{ book.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <span class="line-dashed-right"></span>
+                </div>
+            </section>
+
+
+            <footer class="book-footer">
+                <p>Code inspired by <a href="https://toyhou.se/Starcorex" target="_blank">Starcorex</a></p>
+                <p>Adapted for Jekyll by <a href="https://darbooks.com" target="_blank">DAR</a></p>
+            </footer>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+/* ========================================
+   COLOR VARIABLES
+   ======================================== */
+$color-bg: #f5f3ed;
+$color-text: #4a4a4a;
+$color-accent: #8b7355;
+$color-accent-light: #d4c5b0;
+$color-accent-dark: #6b5d4d;
+$color-border: #c9b9a4;
+$color-meta-1: #f5f3ed;
+$color-meta-2: #ebe7e0;
+$color-meta-3: #f5f3ed;
+$color-meta-4: #ebe7e0;
+$color-meta-5: #f5f3ed;
+
+/* ========================================
+   BODY & CARD FRAME - WIDER & LONGER
+   ======================================== */
+body {
+    background: #e8e6e1;
+    background-image:
+        radial-gradient(#d4d0c8 1px, transparent 1px),
+        radial-gradient(#d4d0c8 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    margin: 0;
+    padding: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-frame {
+    position: relative;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    background: #f5f3ed;
+    border: 3px double $color-border;
+    box-shadow:
+        0 0 0 1px #d4d0c8,
+        0 0 0 3px #e8e6e1,
+        0 0 0 4px $color-border,
+        0 10px 30px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 2px;
+}
+
+.card-corners {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    .corner {
+        position: absolute;
+        font-size: 2rem;
+        color: $color-accent;
+        opacity: 0.6;
+    }
+
+    .corner-tl { top: 8px; left: 8px; }
+    .corner-tr { top: 8px; right: 8px; transform: rotate(90deg); }
+    .corner-bl { bottom: 8px; left: 8px; transform: rotate(-90deg); }
+    .corner-br { bottom: 8px; right: 8px; transform: rotate(180deg); }
+}
+
+/* ========================================
+   MAIN LAYOUT - WIDER
+   ======================================== */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 530px minmax(0, 1fr); /* Increased left sidebar from 380px */
+    gap: 30px; /* Increased from 20px */
+    position: relative;
+    z-index: 1;
+    align-items: stretch;
+
+}
+
+/* ========================================
+   LEFT SIDEBAR
+   ======================================== */
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left-top-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Card 1: Image & Quote */
+.card-image-quote {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #fff;
+    border: 1px solid $color-border;
+    padding: 8px;
+}
+
+.image-box {
+    border: 2px solid $color-border;
+    padding: 6px;
+    margin-bottom: 10px;
+    background: #fff;
+    position: relative;
+
+    &::before, &::after {
+        content: "❧";
+        position: absolute;
+        font-size: 1rem;
+        color: $color-accent;
+        opacity: 0.7;
+        z-index: 2;
+    }
+    &::before { top: 2px; left: 2px; }
+    &::after { bottom: 2px; right: 2px; transform: rotate(180deg); }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    .no-image {
+        height: 180px; /* Increased from 160px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-style: italic;
+        background: #f9f9f9;
+        font-size: 0.85rem;
+    }
+}
+
+/* Buy Button - Between Image and Quote */
+.buy-button {
+    display: block;
+    width: 90%;
+    margin: 0 auto 10px auto; /* Centers button, space below */
+    padding: 10px;
+    background: $color-accent-dark;
+    color: #fff !important; /* Force white text */
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    span {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        background: $color-accent;
+        color: #fff !important;
+        border-color: $color-accent;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+}
+
+.quote-box {
+    position: relative;
+    padding: 10px 10px 15px 10px;
+    margin-top: 0px;
+    background: #fff;
+    font-style: italic;
+    text-align: center;
+    border-top: 1px solid $color-accent;
+    border-bottom: 1px solid $color-accent;
+
+    .quote-text {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        color: #666;
+        margin: 0;
+        font-family: 'Cormorant Garamond', serif;
+        padding: 6px 0;
+    }
+}
+
+/* Card 2: Metadata */
+.card-meta {
+    background: #fff;
+    border: 1px solid $color-border;
+    padding: 12px;
+
+    .meta-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2;
+    }
+
+    .meta-item {
+        padding: 16px;
+        margin-bottom: 8px;
+        margin-top: 5px;
+        border: 1px dotted rgb(192, 180, 165);
+
+        h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: $color-accent-dark;
+            margin-bottom: 3px;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        p {
+            font-size: 0.8rem;
+            margin: 2px 0;
+            font-style: italic;
+            line-height: 1.3;
+            color: $color-text;
+
+            .symbol {
+                color: $color-accent;
+                margin-right: 5px;
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    .meta-item-1 { background: $color-meta-1; }
+    .meta-item-2 { background: $color-meta-2; }
+    .meta-item-3 { background: $color-meta-3; }
+    .meta-item-4 { background: $color-meta-4; }
+    .meta-item-5 { background: $color-meta-5; }
+}
+
+/* Card 3: About (spans full width of left sidebar) */
+.card-about {
+    border: 2px solid $color-border;
+    margin-top: 8px;
+    padding: 12px 10px 2px;
+    background: #f0eee8;
+    width: 100%;
+
+    .about-header h3 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        color: $color-text;
+        text-align: center;
+        font-family: 'Space Mono', monospace;
+    }
+
+    .about-content {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        text-align: center;
+
+        p { margin: 4px 0; }
+
+        .disclaimer {
+            margin-top: 8px;
+            padding: 6px;
+            background: #fff;
+            border-left: 2px solid $color-accent;
+            padding-left: 8px;
+            text-align: left;
+            font-size: 0.6rem;
+
+            .symbol-hangul {
+                margin-right: 5px;
+                font-weight: bold;
+            }
+        }
+
+        .wip-note {
+            margin-top: 6px;
+            font-style: italic;
+            color: #777;
+            font-size: 0.55rem;
+            text-align: center;
+        }
+    }
+}
+
+/* ========================================
+   RIGHT MAIN CONTENT - WIDER
+   ======================================== */
+.main-content {
+    background: #fff;
+    padding: 20px 40px 9px;
+    border: 1px solid $color-border;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    min-width: 0; /* CRITICAL: This stops the container from stretching */
+    overflow: hidden;
+}
+
+.book-header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .book-title {
+        font-size: 2.5rem; /* Increased from 2.2rem */
+        font-weight: normal;
+        letter-spacing: 5px; /* Increased from 4px */
+        color: $color-text;
+        margin: 0 0 8px 0;
+        font-family: 'Cormorant Garamond', serif;
+        line-height: 1.2;
+        color: $color-accent-dark;
+    }
+
+    .book-traits {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.75rem; /* Increased from 0.7rem */
+        letter-spacing: 3px;
+        color: #777;
+        margin-bottom: 12px;
+    }
+
+    .decorative-divider {
+        font-size: 1.3rem; /* Increased from 1.2rem */
+        color: $color-accent;
+    }
+}
+
+/* Introduction Section */
+.introduction-section {
+    margin-bottom: 15px;
+
+    .intro-title-lines {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 12px;
+
+        .line-solid {
+            flex: 1;
+            height: 1px;
+            background: $color-text;
+            max-width: 100px; /* Increased from 80px */
+        }
+
+        .section-title {
+            font-size: 0.75rem; /* Increased from 0.7rem */
+            letter-spacing: 3px;
+            color: #555;
+            font-family: 'Space Mono', monospace;
+            white-space: nowrap;
+        }
+    }
+}
+
+/* Scroll Container with ALL text inside */
+.scroll-container {
+    display: flex;
+    align-items: stretch;
+    gap: 8px; /* Increased from 6px */
+    margin-bottom: 15px;
+
+    .line-dashed-left,
+    .line-dashed-right {
+        width: 1px;
+        border-left: 1px dashed $color-border;
+        flex-shrink: 0;
+        height: 250px; /* Increased from 220px */
+    }
+
+    .scroll-box {
+        flex-grow: 1;
+        height: 250px; /* Increased from 220px */
+        overflow-y: scroll;
+        padding: 15px; /* Increased from 15px */
+        background: #fafafa;
+        font-size: 0.9rem; /* Increased from 0.85rem */
+        line-height: 1.7; /* Increased from 1.6 */
+        text-align: justify;
+
+        /* Intro text wrapper inside scroll box */
+        .intro-text-wrapper {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted $color-border;
+
+            &::first-letter {
+                float: left;
+                font-size: 3rem; /* Increased from 2.5rem */
+                line-height: 0.8;
+                margin-right: 10px; /* Increased from 8px */
+                margin-top: 5px; /* Increased from 3px */
+                font-family: 'Cormorant Garamond', serif;
+                font-weight: bold;
+                color: $color-accent-dark;
+            }
+
+            .intro-text {
+                font-size: 0.9rem;
+                line-height: 1.7;
+                text-align: justify;
+                margin: 0;
+            }
+        }
+
+        /* Markdown content styling */
+        p {
+            margin: 12px 0;
+        }
+
+        &::-webkit-scrollbar { width: 5px; }
+        &::-webkit-scrollbar-track { background: #f1f1f1; }
+        &::-webkit-scrollbar-thumb { background: $color-border; }
+        &::-webkit-scrollbar-thumb:hover { background: $color-accent; }
+    }
+}
+
+/* Scroll Label - BETWEEN scroll box and links */
+.scroll-label-container {
+    text-align: right;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dotted $color-border;
+
+    .scroll-label {
+        font-size: 0.65rem; /* Increased from 0.6rem */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        font-style: italic;
+        font-family: 'Space Mono', monospace;
+    }
+}
+
+/* Related Section - Contained Scroll Box */
+.related-section {
+    margin-top: 0px 0px 0px;
+    padding: 15px 0;
+    /* Ensure this section stays within the main-content */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+.related-scroll-wrapper {
+    display: block;      /* Changed from flex to block for stability */
+    width: 100%;         /* Forces it to stay inside the main-content */
+    overflow-x: auto;    /* Keeps the scroll internal */
+    overflow-y: hidden;
+    white-space: nowrap; /* Prevents links from wrapping to a new line */
+    padding-bottom: 0px;
+}
+
+.bullet-list {
+    display: flex; /* Allows the list to be as wide as its items */
+    gap: 15px;
+    list-style: none;
+    flex-wrap: nowrap;
+    padding: 0px 0;
+    margin: 0;
+}
+
+.bullet-list li {
+    flex: 0 0 auto; /* Prevents boxes from squishing */
+}
+
+.bullet-list li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border: 1px solid $color-border;
+    text-decoration: none;
+    color: $color-accent-dark;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+
+/* Footer - FIX LINE NOT CROSSING INTO LINKS */
+.book-footer {
+    margin-top: 2px 0px 0px; /* Increased from 15px */
+    padding-top: 15px;
+    border-top: 1px solid $color-border;
+    text-align: center;
+    font-size: 0.7rem; /* Increased from 0.65rem */
+    color: #999;
+
+    p {
+        margin: 4px 0; /* Increased from 3px 0 */
+    }
+
+    a {
+        color: #777;
+        text-decoration: none;
+
+        &:hover { color: $color-accent; }
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 900px) and (min-width: 769px) {
+    body { padding: 20px; align-items: flex-start; }
+    .card-frame { padding: 25px; }
+    .main-wrapper { grid-template-columns: 1fr; gap: 20px; }
+    .left-top-cards { grid-template-columns: 1fr 1fr; }
+    .card-about { width: 100%; }
+    .related-section .bullet-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    body { padding: 15px; align-items: flex-start; }
+    .card-frame { padding: 22px 18px; border-width: 2px; }
+    .card-corners .corner { font-size: 1.5rem; opacity: 0.4; }
+    .main-wrapper { grid-template-columns: 1fr; gap: 15px; }
+    .left-top-cards { grid-template-columns: 1fr; }
+    .card-about { width: 100%; }
+    .main-content { padding: 25px 20px; }
+    .book-header .book-title { font-size: 2rem; }
+    .scroll-box { height: 220px; }
+    .line-dashed-left, .line-dashed-right { height: 220px; }
+    .related-section .bullet-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+    body { padding: 10px; align-items: flex-start; }
+    .card-frame { padding: 18px 15px; border-width: 2px; }
+    .card-corners { display: none; }
+    .main-wrapper { grid-template-columns: 1fr; gap: 12px; }
+    .left-top-cards { grid-template-columns: 1fr; }
+    .image-box::before, .image-box::after { display: none; }
+    .image-box .no-image { height: 160px; }
+    .card-about { padding: 12px 10px; }
+    .main-content { padding: 20px 15px; }
+    .book-header .book-title { font-size: 1.6rem; }
+    .scroll-box { height: 200px; padding: 15px; font-size: 0.85rem; }
+    .line-dashed-left, .line-dashed-right { height: 200px; }
+    .scroll-label { font-size: 0.6rem; }
+    .related-section .bullet-list li { padding: 10px 8px 10px 20px; font-size: 0.8rem; }
+    .book-footer { font-size: 0.65rem; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .scroll-box { -webkit-overflow-scrolling: touch; }
+    .bullet-list li { padding: 14px 10px 14px 24px; }
+}
