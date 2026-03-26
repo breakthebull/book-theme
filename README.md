@@ -144,3 +144,9 @@ For questions or issues, please open a GitHub issue or contact me directly.
 ---
 
 **Happy Reading! 📚✨**
+
+---
+
+# UPDATES
+
+v1.03: Added the BLOG / ABOUT / CONTACT pages
