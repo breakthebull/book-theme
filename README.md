@@ -12,8 +12,7 @@ A beautiful, vintage-inspired Jekyll theme for creating book library/profile pag
 
 ![Theme Preview](https://github.com/breakthebull/book-theme/blob/main/library.png) | ![Theme Preview](https://github.com/breakthebull/book-theme/blob/main/screenshot.png)
 --- | ---
-![Theme Preview](https://github.com/breakthebull/book-theme/blob/main/mobile-book-view) | ![Theme Preview](https://github.com/breakthebull/book-theme/blob/main/mobile-view1)
----|---
+![Theme Preview](https://github.com/breakthebull/book-theme/blob/main/mobile-book-view) | 
 
 ---
 
